@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content  %}
+
+<style>
+
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: #2e3b1c;
+        text-align: center;
+        margin-bottom: 2rem;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .hero-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .hero-img {
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .tag {
+        margin-top: 1rem;
+        background: #48603f;
+        color: white;
+        display: inline-block;
+        padding: 0.4rem 1.2rem;
+        border-radius: 25px;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    .image-tag {
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        background: #48603f;
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        z-index: 2;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .tag:not(.image-tag) {
+        text-align: center;
+        margin-top: 1rem;
+        display: inline-block;
+        background: #48603f;
+        color: white;
+        padding: 0.4rem 1.2rem;
+        border-radius: 25px;
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+
+    .hero-image {
+        width: 500px;
+        border-radius: 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+        display: block;
+    }
+
+    .badge {
+        position: absolute;
+        right: -40px;
+        bottom: -20px;
+        background: linear-gradient(135deg, #5a814f, #a2c18d);
+        color: white;
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(-12deg);
+        font-size: 0.8rem;
+        text-align: center;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        font-family: 'Poppins', sans-serif;
+        transition: transform 0.3s ease;
+    }
+
+    .badge:hover {
+        transform: rotate(-12deg) scale(1.05);
+    }
+
+    .badge i {
+        font-size: 1.5rem;
+        margin-bottom: 0.4rem;
+        color: #fffdd0;
+    }
+
+    .badge span {
+        font-weight: bold;
+        line-height: 1.2;
+    }
+
+    .about {
+        margin-top: 4rem;
+        padding: 2rem;
+        background: #fffef2;
+        border-left: 6px solid #48603f;
+        border-radius: 15px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .about h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #2e3b1c;
+        margin-bottom: 1rem;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .about p {
+        font-size: 1.1rem;
+        color: #444;
+        line-height: 1.8;
+        font-family: 'Poppins', sans-serif;
+    }
+
+</style>
+
+<h1 class="hero-title">COLORFUL IMAGINATION</h1>
+<div class="hero-wrapper">
+    <div class="hero-img">
+        <div class="tag image-tag">
+            * Original artwork
+        </div> 
+        <img src="{% static 'images/i1.jpg' %}" alt="Colorful Statue" class="hero-image">
+        <div class="badge">
+            <i class="fas fa-paint-brush"></i>
+            <span>Become an artist</span>
+        </div>
+    </div>
+</div>
+<div class="about">
+    <h2>About</h2>
+    <p>
+        Welcome to <strong>Kolora</strong>, a haven of creativity where every color tells a story.
+        We celebrate original artwork that bursts with imagination, style, and vibrant emotion.
+        Discover handpicked creations from talented artists and become a part of our colorful journey.
+    </p>
+</div>
+
+{% endblock %}

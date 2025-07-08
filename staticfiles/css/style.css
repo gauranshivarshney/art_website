@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    background-color: #f3f2e9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    padding: 2rem;
+}
+
+.header-layout {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    padding: 0rem 1rem;
+}
+
+.nav-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-left li {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: #fff;
+    cursor: pointer;
+    width: max-content;
+}
+
+.nav-left .active {
+    background: #48603f;
+    color: white;
+}
+
+.center-title {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding-top: 0.5rem;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #48603f;
+}
+
+.logo span {
+    font-family: 'Great Vibes';
+    color: #124201;
+    font-size: 3rem;
+}
+
+.right-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.right-btn:hover {
+    color: #a2c18d;
+}
+
+.contact-btn {
+    background: #48603f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.contact-btn i {
+    margin-left: 8px;
+    font-size: 1rem;
+    vertical-align: middle;
+}
