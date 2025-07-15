@@ -160,17 +160,6 @@
         min-height: 2.4rem;
     }
 
-    .art-card .tag {
-        display: inline-block;
-        background-color: #d3f5c8;
-        color: #2e4e2c;
-        padding: 0.4rem 0.9rem;
-        font-size: 0.75rem;
-        font-weight: 500;
-        border-radius: 25px;
-        margin-top: 0.5rem;
-    }
-
     @media (max-width: 768px) {
         .gallery-layout {
             grid-template-columns: 1fr;
@@ -215,9 +204,6 @@
                 {% for art in artwork %}
                 <div class="art-card">
                     <img src="{{ art.image.url }}">
-                    <div class="info">
-                        <span class="tag">{{ art.tag }}</span>
-                    </div>
                 </div>
                 {% empty %}
                 <p style="text-align:center; font-size: 1.1rem; color: #888;">No artworks found!!</p>
