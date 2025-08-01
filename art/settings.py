@@ -127,9 +127,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MIDDLEWARE += ['whitenoise.middleware.WhiteNoiseMiddlweare']
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
 
 MEDIA_URL = '/media/'
