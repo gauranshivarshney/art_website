@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="p:domain_verify" content="af8f90a1847adc67dd41bdde2c1a6e7c"/>
+    <title>Kolora - Colorful Imagination</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="header-layout">
+            <nav class="nav-left">
+                <ul>
+                    <li class="{% if request.path == '/'%}active{% endif %}">
+                        <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+                            Home
+                        </a>
+                    </li>
+                    <li class="{% if request.path == '/about/' %}active{% endif %}">
+                        <a href="{% url 'about' %}" style="text-decoration: none; color: inherit;">
+                            About Me
+                        </a>
+                    </li>
+                    <li class="{% if request.path == '/artwork/' %}active{% endif %}">
+                        <a href="{% url 'artwork' %}" style="text-decoration: none; color: inherit;">
+                            Artwork
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="center-title">
+                <div class="logo"><span>K</span> olora</div>
+            </div>
+            <div class="right-btn">
+                    <a href="{% url 'contact' %}" class="contact-btn" style="text-decoration: none;">
+                        Contact Me
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+            </div>
+        </header>
+        {% if messages %}
+            <div style="text-align:center; margin-top: 1rem;">
+                {% for message in messages %}
+                    <p style="color: green; font-weight: 500;">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

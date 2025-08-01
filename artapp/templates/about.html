@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    .about-banner {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+    }
+
+    .about-banner.improved-banner {
+        position: relative;
+        height: 380px;
+        center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .gradient-overlay {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(72, 96, 63, 0.8), rgba(0, 0, 0, 0.6));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        box-sizing: border-box;
+    }
+
+    .banner-content {
+        text-align: center;
+        color: #fefefe;
+        max-width: 800px;
+    }
+
+    .banner-content h1 {
+        font-size: 3.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .banner-content span {
+        font-family: 'Great Vibes', cursive;
+        font-size: 3.5rem;
+        color: #ffefc6;
+    }
+
+    .banner-content p {
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: #f3f3f3;
+        letter-spacing: 0.5px;
+    }
+
+    .founder-me {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+        padding: 4rem 2rem;
+        background: #fffef5;
+    }
+
+    .me-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 260px;
+    }
+
+    .me-image img {
+        width: 100%;
+        max-width: 260px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .me-image img:hover {
+        transform: scale(1.03);
+    }
+
+    .me-text {
+        flex: 2;
+        min-width: 280px;
+        max-width: 700px;
+    }
+
+    .me-text h2 {
+        font-size: 2.2rem;
+        color: #2e3b1c;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .me-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #444;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .signature {
+        margin-top: 1.5rem;
+        font-family: 'Great Vibes', cursive;
+        font-size: 1.7rem;
+        color: #48603f;
+        text-align: right;
+    }
+
+    .art-social-container h3 {
+        font-size: 1.6rem;
+        color: #2e3b1c;
+        margin-bottom: 1rem;
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .art-social-icons {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .art-icon {
+        width: 60px;
+        height: 60px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .art-icon img {
+        width: 65%;
+        height: 65%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+
+    .art-icon:hover img {
+        filter: grayscale(0%);
+    }
+
+    .art-icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .art-icon.insta:hover {
+        background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5); 
+    }
+
+    .art-icon.youtube:hover {
+        background: linear-gradient(to right, #ff0000, #b30000);
+    }
+
+    .art-icon.pinterest:hover {
+        background: linear-gradient(to right, #bd081c, #ff6b6b);
+    }
+
+    .code-connect {
+        padding: 3rem 2rem;
+        background: #fffef5;
+    }
+
+    .code-connect h3 {
+        font-size: 2rem;
+        color: #2e3b1c;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .code-social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .code-icon {
+        width: 60px;
+        height: 60px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .code-icon img {
+        width: 65%;
+        height: 65%;
+        object-fit: contain;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+
+    .code-icon:hover img {
+        filter: grayscale(0%);
+    }
+
+    .code-icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .code-icon.portfolio:hover {
+        background: linear-gradient(to right, #48603f, #9cc99b);
+    }
+
+    .code-icon.github:hover {
+        background: linear-gradient(to right, #333, #6e5494);
+    }
+
+    .code-icon.linkedin:hover {
+        background: linear-gradient(to right, rgb(4, 62, 93), rgb(30, 181, 236));
+    }
+
+    .code-icon.leetcode:hover {
+        background: linear-gradient(to right, #f89f1b, #292929);
+    }
+
+</style>
+
+<div class="about-banner improved-banner">
+    <div class="gradient-overlay">
+        <div class="banner-content">
+            <h1>About Me</h1>
+            <p>From <strong>Code</strong> to <strong>Canvas</strong> — this is my journey 🌟</p>
+        </div>
+    </div>
+</div>
+<section class="founder-me">
+    <div class="me-image">
+        <img src="{% static 'images/image.jpg' %}" alt="Gauranshi Varshney">
+    </div>
+    <div class="me-text">
+        <h2>Hi, I'm Gauranshi 👩🏻‍🎨</h2>
+        <p>
+            Hello! I’m a Computer Science graduate from <strong>Delhi University</strong> and postgraduate from <strong>IPU University</strong>. 
+            With a strong background in both full-stack and python development, I enjoy turning ideas into smooth, beautiful user experiences.
+            <br><br>
+            I’ve worked with technologies like <strong>React, React Native, Node.js, MongoDB, Django, and Next.js</strong>. I'm also fluent in <strong>C++</strong> and <strong>Python</strong>. 
+            I've interned at prestigious places like <strong>IIT Delhi</strong> and <strong>Unified Mentor</strong>, and actively contributed to open-source projects through 
+            <strong>GirlScript Summer of Code</strong>.
+            <br><br>
+            But there’s another side to me — the artist. I’m the creator of <strong>Kolora</strong>, a space where I express creativity through color. 
+            From sketching to mandalas to vibrant oil pastels, art has always been my emotional outlet and creative voice.
+            <br><br>
+            Whether I’m writing code or painting a canvas, one thing stays constant: my passion to build, express, and inspire.
+        </p>
+        <div class="signature">— Gauranshi 💫</div>
+        <div class="art-social-container">
+            <div class="art-social-icons">
+                <a href="https://www.instagram.com/gauranshi_gallery" target="_blank" class="art-icon insta">
+                    <img src="{% static 'images/instagram.png' %}" alt="Instagram" />
+                </a>
+                <a href="https://www.youtube.com/@gauranshi15" target="_blank" class="art-icon youtube">
+                    <img src="{% static 'images/youtube.png' %}" alt="YouTube" />
+                </a>
+                <a href="https://in.pinterest.com/gauranshivarshney/" target="_blank" class="art-icon pinterest">
+                    <img src="{% static 'images/pinterest.png' %}" alt="Pinterest" />
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="code-connect">
+    <h3>My Digital Playground</h3>
+    <div class="code-social-icons">
+        <a href="https://portfolio-django-pchz.onrender.com" target="_blank" class="code-icon portfolio">
+            <img src="{% static 'images/portfolio.png' %}" alt="Portfolio" />
+        </a>
+        <a href="https://github.com/gauranshivarshney" target="_blank" class="code-icon github">
+            <img src="{% static 'images/github.png' %}" alt="GitHub" />
+        </a>
+        <a href="https://www.linkedin.com/in/gauranshi-varshney-01b64a233/" target="_blank" class="code-icon linkedin">
+            <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn" />
+        </a>
+        <a href="https://leetcode.com/u/gauranshivarshney/" target="_blank" class="code-icon leetcode">
+            <img src="{% static 'images/code.png' %}" alt="LeetCode" />
+        </a>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+
+    .contact-section {
+        padding: 1rem 2rem 5rem;
+       background: #fffef5;
+        font-family: 'Poppins', sans-serif;
+        min-height: 100vh;
+        margin-top: 50px;
+    }
+
+    .contact-section h2 {
+        text-align: center;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #2e3b1c;
+        margin-bottom: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .contact-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        background: #ffffffd1;
+        backdrop-filter: blur(8px);
+        border-radius: 20px;
+        box-shadow: 0 8px 25px rgba(72, 96, 63, 0.15);
+        padding: 2.5rem;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #2e3b1c;
+    }
+
+    .contact-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+        margin: 0.4rem 0;
+        font-size: 1rem;
+        color: #4b4b4b;
+    }
+
+    .contact-info i {
+        color: #48603f;
+        margin-right: 8px;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 0.8rem 1.2rem;
+        border: 1px solid #c3dec2;
+        border-radius: 10px;
+        margin-bottom: 1.2rem;
+        font-size: 1rem;
+        background: #f9fff8;
+        resize: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        outline: none;
+        border-color: #48603f;
+        box-shadow: 0 0 0 3px rgba(72, 96, 63, 0.15);
+    }
+
+    .contact-form button {
+        background: #48603f;
+        color: white;
+        padding: 0.8rem 1.2rem;
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+        background: #34502c;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+</style>
+
+<div class="contact-section">
+    <h2>Get in Touch</h2>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><i class="fas fa-envelope"></i> gauranshivarshney@ms.du.ac.in</p>
+            <p><i class="fas fa-phone-alt"></i> +91 7253099079</p>
+            <p><i class="fas fa-map-marker-alt"></i> Uttar Pradesh, India</p>
+            <br>
+            <h3>Working Hours</h3>
+            <p><i class="fas fa-clock"></i> Mon - Fri: 10:00 AM - 6:00 PM</p>
+        </div>
+        <form class="contact-form" method="POST">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
